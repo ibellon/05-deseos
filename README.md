@@ -1,0 +1,1 @@
+Aplicación Angular para montarla en un dispositivo Android a través de Ionic y Apache Cordova
