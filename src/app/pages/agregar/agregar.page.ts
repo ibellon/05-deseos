@@ -42,4 +42,36 @@ export class AgregarPage implements OnInit {
     this.deseosService.guardarStorage();
   }
 
+  cambioCheck( item: ListaItem ) {
+    
+    console.log("Seleccionado: ", item);
+
+    const pendientes = this.lista.items
+      .filter(itemData => !itemData.completado)
+      .length;
+
+    console.log({pendientes});
+
+    if( pendientes === 0) {
+      this.lista.terminada = true;
+      this.lista.terminadaEn = new Date();
+    }
+    else {
+      this.lista.terminada = false;
+      this.lista.terminadaEn = null;
+    }
+
+    this.deseosService.guardarStorage();
+
+    console.log(this.deseosService.listas);
+
+  }
+
+  borrar( i:number ) {
+
+    this.lista.items.splice(i, 1);
+    
+    this.deseosService.guardarStorage();
+  
+  }
 }
