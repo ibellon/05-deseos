@@ -1,7 +1,7 @@
 <ion-list color="dark">
 
   <!-- Sliding item with text options on both sides -->
-  <ion-item-sliding *ngFor="let lista of deseosService.listas">
+  <ion-item-sliding *ngFor="let lista of deseosService.listas | filtroCompletado:terminadas">
   
     <ion-item  detail color="dark"
               (click)="listaSeleccionada(lista)">
